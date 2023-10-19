@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Подать заявку на конкурс
+{% endblock %}
+
+{% block content %}
+<form>
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Отправить">
+</form>
+  {% with data=request.GET %}
+    {% if form.is_valid %}
+      <h2>Рецепт мороженого "{{ request.GET.title }}"" принят на конкурс!</h2>
+    {% endif %}
+  {% endwith %}
+{% endblock %}
